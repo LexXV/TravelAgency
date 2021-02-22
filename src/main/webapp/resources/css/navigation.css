@@ -1,0 +1,114 @@
+
+.nanvnav nav {
+    width: auto;
+}
+
+.nanvnav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nanvnav ul.dropdown {
+    position: relative;
+    width: 100%;
+}
+
+.nanvnav ul.dropdown li {
+    font-weight: bold;
+    float: left;
+    width: 150px;
+    position: relative;
+    background: #ecf0f1;
+}
+
+.nanvnav button {
+    height: 56px;
+    font-size: 15px;
+}
+
+.nanvnav ul.dropdown a:hover {
+    color: #000;
+}
+
+.nanvnav ul.dropdown li a {
+    display: block;
+    padding: 20px 8px;
+    color: #34495e;
+    position: relative;
+    z-index: 2000;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.nanvnav ul li button {
+    display: block;
+    color: #34495e;
+    position: relative;
+    z-index: 2000;
+    text-align: left;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 15px;
+    height: 45px;
+}
+
+.nanvnav ul.dropdown li a:hover,
+.nanvnav ul.dropdown li a.hover {
+    background: #8db6d2;
+    position: relative;
+    color: #fff;
+}
+
+
+.nanvnav ul.dropdown ul {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    z-index: 1000;
+}
+
+.nanvnav ul.dropdown ul li {
+    font-weight: normal;
+    background: #f6f6f6;
+    color: #000;
+    border-bottom: 1px solid #ccc;
+}
+
+.nanvnav ul.dropdown ul li a {
+    display: block;
+    color: #34495e !important;
+    background: #eee !important;
+}
+
+.nanvnav ul.dropdown ul li a:hover {
+    display: block;
+    background: #8db6d2 !important;
+    color: #fff !important;
+}
+
+.nanvnav .drop > a {
+    position: relative;
+}
+
+.nanvnav .drop > a:after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    border-left: 5px solid transparent;
+    border-top: 5px solid #333;
+    border-right: 5px solid transparent;
+    z-index: 999;
+}
+
+.nanvnav .drop > a:hover:after {
+    content: "";
+    border-left: 5px solid transparent;
+    border-top: 5px solid #fff;
+    border-right: 5px solid transparent;
+}
+
