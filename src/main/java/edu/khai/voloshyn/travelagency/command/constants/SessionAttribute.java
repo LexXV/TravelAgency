@@ -9,6 +9,7 @@ public class SessionAttribute {
     public static final String TOUR = "tour";
     public static final String TOUR_NUMBER = "tour_number";
     public static final String TRANSPORTS = "transports";
+    public static final String TOUR_DISCOUNTS = "tour_discounts";
     public static final String CITIES = "cities";
     public static final String HOTELS = "hotels";
     public static final String TOURISTS = "tourists";

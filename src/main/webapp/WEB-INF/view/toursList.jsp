@@ -301,6 +301,12 @@
                                         <div class="star d-flex clearfix">
                                             <div class="mr-auto float-left">
                                                 <span class="ion-ios-star"><c:out
+                                                        value="${tour.discount.discountSize} discount"/></span>
+                                            </div>
+                                        </div>
+                                        <div class="star d-flex clearfix">
+                                            <div class="mr-auto float-left">
+                                                <span class="ion-ios-star"><c:out
                                                         value="from ${tour.departureCity.city}"/></span>
                                             </div>
                                         </div>
@@ -419,6 +425,12 @@
                                         <div class="star d-flex clearfix">
                                             <div class="mr-auto float-left">
                                                 <span class="ion-ios-star"><c:out
+                                                        value="${tour.discount.discountSize} discount"/></span>
+                                            </div>
+                                        </div>
+                                        <div class="star d-flex clearfix">
+                                            <div class="mr-auto float-left">
+                                                <span class="ion-ios-star"><c:out
                                                         value="from ${tour.departureCity.city}"/></span>
                                             </div>
                                         </div>
@@ -512,6 +524,12 @@
                                                 </div>
                                             </div>
                                             <div class="star d-flex clearfix">
+                                            	<div class="mr-auto float-left">
+                                                	<span class="ion-ios-star"><c:out
+                                                        	value="${tour.discount.discountSize} discount"/></span>
+                                            	</div>
+                                        	</div>
+                                            <div class="star d-flex clearfix">
                                                 <div class="mr-auto float-left">
                                                 <span class="ion-ios-star"><c:out
                                                         value="from ${tour.departureCity.city}"/></span>
@@ -582,6 +600,12 @@
                                                         value="${tour.transport.type}"/></span>
                                                 </div>
                                             </div>
+                                            <div class="star d-flex clearfix">
+                                            	<div class="mr-auto float-left">
+                                                	<span class="ion-ios-star"><c:out
+                                                        	value="${tour.discount.discountSize} discount"/></span>
+                                            	</div>
+                                        	</div>
                                             <div class="star d-flex clearfix">
                                                 <div class="mr-auto float-left">
                                                 <span class="ion-ios-star"><c:out

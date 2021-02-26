@@ -122,8 +122,8 @@ public class SqlStatement {
 
     public static final String CREATE_TOUR = "INSERT INTO `travel_agency_db`.`tour`\n" +
             "(`tour_name`, `tour_cost`, `tour_departure_date`,`tour_days`, `tour_places`,`tour_type_id`,\n" +
-            "`tour_city_id`, `tour_departure_city_id`, `tour_hotel_id`, `tour_tourist_id`, `tour_transport_id`)\n" +
-            "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+            "`tour_city_id`, `tour_departure_city_id`, `tour_hotel_id`, `tour_tourist_id`, `tour_transport_id`, `tour_discount_id`)\n" +
+            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
     public static final String CREATE_TOUR_TYPE = "INSERT INTO `travel_agency_db`.`tour_type`" +
             "(`tour_type`) VALUES (?)";
@@ -179,7 +179,7 @@ public class SqlStatement {
             "SET " +
             "tour.tour_cost =? , tour.tour_departure_date =?, tour.tour_days =? , \n" +
             "tour.tour_places =? , tour.tour_type_id =? ,tour.tour_city_id =? , tour.tour_departure_city_id =? ,\n" +
-            "tour.tour_hotel_id =? , tour.tour_tourist_id =? , tour.tour_transport_id =?  " +
+            "tour.tour_hotel_id =? , tour.tour_tourist_id =? , tour.tour_transport_id =? , tour.tour_discount_id =?  " +
             "WHERE tour_id = ?";
 
     public static final String SET_HOT_TOUR = "UPDATE `travel_agency_db`.`tour` " +
@@ -194,6 +194,9 @@ public class SqlStatement {
     public static final String FIND_TOUR_DISCOUNT_BY_ID = "SELECT tour_discount_id, tour_discount_size " +
             "FROM travel_agency_db.tour_discount\n" +
             "WHERE tour_discount_id=?";
+    
+    public static final String GET_ALL_TOUR_DISCOUNT = "SELECT * FROM travel_agency_db.tour_discount " +
+            "ORDER by tour_discount_id";
 
     public static final String SET_ARCHIVE_TOUR = "UPDATE `travel_agency_db`.`tour` " +
             "SET `tour_status_id` = '3' WHERE (`tour_id` = ?)";

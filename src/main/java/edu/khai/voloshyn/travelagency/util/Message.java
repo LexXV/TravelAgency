@@ -41,6 +41,7 @@ public class Message {
     public static final String UPDATE_ORDERS_STATUS_ERROR = "Error in updating user status city";
     public static final String UPDATE_USER_DISCOUNT_ERROR = "Error in updating user discount";
     public static final String UPDATE_TOUR_DISCOUNT_ERROR = "Error in updating tour discount";
+    public static final String GET_ALL_TOUR_DISCOUNTS_ERROR = "Error in getting all transports";
     public static final String CREATE_TOUR_ERROR = "Error in creating tour";
     public static final String UPDATE_TOUR_ERROR = "Error in updating tour";
     public static final String DELETE_TOUR_ERROR = "Error in deleting tour";

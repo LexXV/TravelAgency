@@ -22,6 +22,7 @@ public class JspParameterType {
     public static final String PLACES = "places";
     public static final String DEPARTURE_DATE = "departure_date";
     public static final String TOUR_TRANSPORT = "tour_transport";
+    public static final String TOUR_DISCOUNT_SIZE = "tour_discount_size";
     public static final String TO_CITY = "to_city";
     public static final String TO_HOTEL = "to_hotel";
     public static final String TO_TOURIST = "to_tourist";

@@ -41,6 +41,10 @@ public class ServiceFactory {
         return TransportServiceImpl.getInstance();
     }
 
+    public TourDiscountService getTourDiscountService() {
+        return TourDiscountServiceImpl.getInstance();
+    }
+    
     public OrderService getOrderService() {
         return OrderServiceImpl.getInstance();
     }

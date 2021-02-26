@@ -116,6 +116,26 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <h4><fmt:message
+                                            key="updateTour.previousTourDiscount"/> ${sessionScope.tour.discount.discountSize}</h4>
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="tour_discount_size">
+                                            <option disabled="disabled">
+                                                <fmt:message
+                                                        key="updateTour.newTourDiscount"/>
+                                            </option>
+                                            <c:forEach
+                                                    items="${sessionScope.tour_discounts}"
+                                                    var="discount">
+                                                <option value="${discount.id}">${discount.discountSize}</option>
+                                            </c:forEach>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row row-space">
                             <div class="col-2">

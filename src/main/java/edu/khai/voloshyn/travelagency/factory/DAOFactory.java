@@ -39,6 +39,10 @@ public class DAOFactory {
     public TransportDAO getTransportDAO() {
         return TransportDAOImpl.getInstance();
     }
+    
+    public TourDiscountDAO getTourDiscountDAO() {
+        return TourDiscountDAOImpl.getInstance();
+    }
 
     public OrderDAO getOrderDAO() {
         return OrderDAOImpl.getInstance();

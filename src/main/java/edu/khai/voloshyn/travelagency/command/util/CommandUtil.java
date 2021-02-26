@@ -22,6 +22,7 @@ public class CommandUtil {
         List<Tourist> tourists = new ArrayList<>();
         List<TourType> tourTypes = new ArrayList<>();
         List<Transport> transports = new ArrayList<>();
+        List<TourDiscount> tourDiscounts = new ArrayList<>();
         try {
             tours = ServiceFactory.getInstance().getTourService().getAllTours();
             cities = ServiceFactory.getInstance().getCityService().getAllCities();
@@ -29,6 +30,7 @@ public class CommandUtil {
             tourists = ServiceFactory.getInstance().getTouristService().getAllTourists();
             tourTypes = ServiceFactory.getInstance().getTourTypeService().getAllTourTypes();
             transports = ServiceFactory.getInstance().getTransportService().getAllTransports();
+            tourDiscounts = ServiceFactory.getInstance().getTourDiscountService().getAllTourDiscounts();
         } catch (ServiceException e) {
             LOGGER.error(e);
         }
@@ -38,6 +40,7 @@ public class CommandUtil {
         request.getSession().setAttribute(SessionAttribute.HOTELS, hotels);
         request.getSession().setAttribute(SessionAttribute.TOURISTS, tourists);
         request.getSession().setAttribute(SessionAttribute.TOUR_TYPES, tourTypes);
+        request.getSession().setAttribute(SessionAttribute.TOUR_DISCOUNTS, tourDiscounts);
     }
 
 

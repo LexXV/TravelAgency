@@ -39,6 +39,8 @@ public class AddTourCommand implements Command {
                 findTouristById(Integer.parseInt(request.getParameter(JspParameterType.TO_TOURIST))));
         tour.setTourType(ServiceFactory.getInstance().getTourTypeService().
                 findTourTypeById(Integer.parseInt(request.getParameter(JspParameterType.TOUR_TYPE))));
+        tour.setDiscount(ServiceFactory.getInstance().getTourDiscountService().
+                findTourDiscountById(Integer.parseInt(request.getParameter(JspParameterType.TOUR_DISCOUNT_SIZE))));
     }
 
     @Override

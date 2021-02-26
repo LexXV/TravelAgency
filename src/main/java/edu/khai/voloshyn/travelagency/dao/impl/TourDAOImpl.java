@@ -33,6 +33,7 @@ public class TourDAOImpl implements TourDAO {
     private static final int CREATE_TOUR_HOTEL_INDEX = 9;
     private static final int CREATE_TOUR_TOURIST_INDEX = 10;
     private static final int CREATE_TOUR_TRANSPORT_INDEX = 11;
+    private static final int CREATE_TOUR_DISCOUNT_INDEX = 12;
     private static final int CITY_ID_QUERY_INDEX = 1;
     private static final int HOTEL_ID_QUERY_INDEX = 1;
     private static final int TOURIST_ID_QUERY_INDEX = 1;
@@ -48,7 +49,8 @@ public class TourDAOImpl implements TourDAO {
     private static final int UPDATE_TOUR_HOTEL_INDEX = 8;
     private static final int UPDATE_TOUR_TOURIST_INDEX = 9;
     private static final int UPDATE_TOUR_TRANSPORT_INDEX = 10;
-    private static final int UPDATE_TOUR_ID_INDEX = 11;
+    private static final int UPDATE_TOUR_DISCOUNT_INDEX = 11;
+    private static final int UPDATE_TOUR_ID_INDEX = 12;
     private static final int UPDATE_ID_INDEX = 2;
     private static final int UPDATE_PLACES_INDEX = 1;
 
@@ -408,6 +410,7 @@ public class TourDAOImpl implements TourDAO {
         statement.setInt(UPDATE_TOUR_HOTEL_INDEX, tour.getHotel().getHotelId());
         statement.setInt(UPDATE_TOUR_TOURIST_INDEX, tour.getTourist().getTouristId());
         statement.setInt(UPDATE_TOUR_TRANSPORT_INDEX, tour.getTransport().getTransportId());
+        statement.setInt(UPDATE_TOUR_DISCOUNT_INDEX, tour.getDiscount().getId());
         statement.setInt(UPDATE_TOUR_ID_INDEX, tour.getTourId());
     }
 
@@ -443,6 +446,7 @@ public class TourDAOImpl implements TourDAO {
         statement.setInt(CREATE_TOUR_HOTEL_INDEX, tour.getHotel().getHotelId());
         statement.setInt(CREATE_TOUR_TOURIST_INDEX, tour.getTourist().getTouristId());
         statement.setInt(CREATE_TOUR_TRANSPORT_INDEX, tour.getTransport().getTransportId());
+        statement.setInt(CREATE_TOUR_DISCOUNT_INDEX, tour.getDiscount().getId());
     }
 
     private static final class TourDAOImplHolder {

@@ -38,6 +38,8 @@ public class UpdateTourCommand implements Command {
                 findCityById(Integer.parseInt(request.getParameter(JspParameterType.DEPARTURE_CITY))));
         tour.setTourType(ServiceFactory.getInstance().getTourTypeService().
                 findTourTypeById(Integer.parseInt(request.getParameter(JspParameterType.TOUR_TYPE))));
+        tour.setDiscount(ServiceFactory.getInstance().getTourDiscountService().
+                findTourDiscountById(Integer.parseInt(request.getParameter(JspParameterType.TOUR_DISCOUNT_SIZE))));
     }
 
     @Override

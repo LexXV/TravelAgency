@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
+import edu.khai.voloshyn.travelagency.entity.TourDiscount;
 
 public class Tour implements Serializable {
     private int tourId;
@@ -27,7 +28,7 @@ public class Tour implements Serializable {
 
     public Tour(String name, double cost, Date departureDate,
                 int days, int places, TourType tourType, City city,
-                City departureCity, Hotel hotel, Tourist tourist, TourStatus tourStatus, Transport transport) {
+                City departureCity, Hotel hotel, Tourist tourist, TourStatus tourStatus, Transport transport, TourDiscount discount) {
         this.name = name;
         this.cost = cost;
         this.departureDate = departureDate;
