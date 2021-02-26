@@ -49,7 +49,7 @@ public class BuyTourCommand implements Command {
     }
 
     private double countPriceWithDiscount(Order order) {
-        return order.getUser().getDiscount().getDiscountSize() * order.getTour().getCost() * order.getNumber();
+        return order.getUser().getDiscount().getDiscountSize() * order.getTour().getCost() * order.getTour().getDiscount().getDiscountSize() * order.getNumber();
     }
 
     private void buyTourActions(Order order) throws ServiceException {

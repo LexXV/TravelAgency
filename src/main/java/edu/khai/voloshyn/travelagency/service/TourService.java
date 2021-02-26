@@ -2,6 +2,8 @@ package edu.khai.voloshyn.travelagency.service;
 
 import edu.khai.voloshyn.travelagency.entity.City;
 import edu.khai.voloshyn.travelagency.entity.Hotel;
+import edu.khai.voloshyn.travelagency.entity.Tourist;
+import edu.khai.voloshyn.travelagency.entity.User;
 import edu.khai.voloshyn.travelagency.entity.Tour;
 import edu.khai.voloshyn.travelagency.exception.ServiceException;
 
@@ -11,7 +13,7 @@ import java.util.List;
 public interface TourService {
     void createTour(Tour tour) throws ServiceException;
 
-    List<Tour> searchToursByParameters(City city, Hotel hotel, Date departureDate, int days, double cost) throws ServiceException;
+    List<Tour> searchToursByParameters(City city, Hotel hotel, Tourist tourist, Date departureDate, int days, double cost) throws ServiceException;
 
     List<Tour> getAllTours() throws ServiceException;
 
@@ -20,6 +22,8 @@ public interface TourService {
     List<Tour> getToursByCityId(int cityId) throws ServiceException;
     
     List<Tour> getToursByHotelId(int hotelId) throws ServiceException;
+    
+    List<Tour> getToursByTouristId(int touristId) throws ServiceException;
 
     List<Tour> getToursByTourTypeId(int tourTypeId) throws ServiceException;
 

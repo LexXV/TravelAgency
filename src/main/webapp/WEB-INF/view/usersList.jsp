@@ -29,7 +29,7 @@
                         <th><fmt:message key="list.password"/></th>
                         <th><fmt:message key="list.name"/></th>
                         <th><fmt:message key="list.surname"/></th>
-                        <th><fmt:message key="list.discount"/></th>
+                        <th><fmt:message key="list.userDiscount"/></th>
                         <th><fmt:message key="list.cash"/></th>
                         <th><fmt:message key="list.phone"/></th>
                         <th><fmt:message key="list.role"/></th>

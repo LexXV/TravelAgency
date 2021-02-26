@@ -3,6 +3,8 @@ package edu.khai.voloshyn.travelagency.service.impl;
 import edu.khai.voloshyn.travelagency.dao.TourDAO;
 import edu.khai.voloshyn.travelagency.entity.City;
 import edu.khai.voloshyn.travelagency.entity.Hotel;
+import edu.khai.voloshyn.travelagency.entity.Tourist;
+import edu.khai.voloshyn.travelagency.entity.User;
 import edu.khai.voloshyn.travelagency.entity.Tour;
 import edu.khai.voloshyn.travelagency.exception.DAOException;
 import edu.khai.voloshyn.travelagency.exception.ServiceException;
@@ -64,11 +66,11 @@ public class TourServiceImpl implements TourService {
     }
 
     @Override
-    public List<Tour> searchToursByParameters(City city, Hotel hotel, Date departureDate, int days, double cost) throws ServiceException {
+    public List<Tour> searchToursByParameters(City city, Hotel hotel, Tourist tourist, Date departureDate, int days, double cost) throws ServiceException {
         Validator validator = createSearchParametersValidator(departureDate, days, cost);
         try {
             validator.validate();
-            return tourDAO.searchTourByParameters(city, hotel, departureDate, days, cost);
+            return tourDAO.searchTourByParameters(city, hotel, tourist, departureDate, days, cost);
         } catch (DAOException | ValidatorException e) {
             LOGGER.error(Message.SEARCH_TOUR_BY_PARAMETERS_ERROR);
             throw new ServiceException(Message.SEARCH_TOUR_BY_PARAMETERS_ERROR, e);
@@ -112,6 +114,16 @@ public class TourServiceImpl implements TourService {
         } catch (DAOException e) {
             LOGGER.error(Message.GET_TOURS_BY_HOTEL_ID_ERROR);
             throw new ServiceException(Message.GET_TOURS_BY_HOTEL_ID_ERROR, e);
+        }
+    }
+    
+    @Override
+    public List<Tour> getToursByTouristId(int touristId) throws ServiceException {
+        try {
+            return tourDAO.getToursByTouristId(touristId);
+        } catch (DAOException e) {
+            LOGGER.error(Message.GET_TOURS_BY_TOURIST_ID_ERROR);
+            throw new ServiceException(Message.GET_TOURS_BY_TOURIST_ID_ERROR, e);
         }
     }
 

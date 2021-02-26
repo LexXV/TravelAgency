@@ -81,6 +81,26 @@
                     <form method="post"
                           action="${pageContext.request.contextPath}/">
                         <span class="login100-form-title p-b-34 p-t-27"><fmt:message
+                                key="service.newTourist"/></span>
+                        <div class="wrap-input100"
+                             data-validate="Enter tourists number info">
+                            <input class="input100" type="text" name="tourist"
+                                   required
+                                   placeholder="<fmt:message key="tour.tourist"/>">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn" type="submit"
+                                    name="command" value="add_tourist">
+                                OK
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="wrap-login100">
+                    <form method="post"
+                          action="${pageContext.request.contextPath}/">
+                        <span class="login100-form-title p-b-34 p-t-27"><fmt:message
                                 key="service.newTourType"/></span>
                         <div class="wrap-input100"
                              data-validate="Enter type">
@@ -138,6 +158,29 @@
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn" type="submit"
                                     name="command" value="delete_hotel">
+                                OK
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="wrap-login100">
+                    <form method="post"
+                          action="${pageContext.request.contextPath}/">
+                        <span class="login100-form-title p-b-34 p-t-27"><fmt:message
+                                key="service.deleteTourist"/></span>
+                        <div class="wrap-input100">
+                            <select name="tourist">
+                                <option disabled="disabled"><fmt:message
+                                        key="tour.tourist"/></option>
+                                <c:forEach items="${sessionScope.tourists}"
+                                           var="tourist">
+                                    <option value="${tourist.touristId}">${tourist.tourist}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn" type="submit"
+                                    name="command" value="delete_tourist">
                                 OK
                             </button>
                         </div>

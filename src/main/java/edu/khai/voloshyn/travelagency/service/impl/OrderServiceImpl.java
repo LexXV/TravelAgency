@@ -3,6 +3,7 @@ package edu.khai.voloshyn.travelagency.service.impl;
 import edu.khai.voloshyn.travelagency.dao.OrderDAO;
 import edu.khai.voloshyn.travelagency.entity.Order;
 import edu.khai.voloshyn.travelagency.entity.User;
+import edu.khai.voloshyn.travelagency.entity.Tour;
 import edu.khai.voloshyn.travelagency.exception.DAOException;
 import edu.khai.voloshyn.travelagency.exception.ServiceException;
 import edu.khai.voloshyn.travelagency.factory.DAOFactory;
@@ -42,6 +43,16 @@ public class OrderServiceImpl implements OrderService {
         } catch (DAOException e) {
             LOGGER.error(Message.DELETE_ORDER_ERROR);
             throw new ServiceException(Message.DELETE_ORDER_ERROR, e);
+        }
+    }
+    
+    @Override
+    public void setBoughtOrder(int orderId) throws ServiceException {
+        try {
+            orderDAO.setBought(orderId);
+        } catch (DAOException e) {
+            LOGGER.error(Message.SET_BOUGHT_ORDER_ERROR);
+            throw new ServiceException(Message.SET_BOUGHT_ORDER_ERROR, e);
         }
     }
 
@@ -92,6 +103,16 @@ public class OrderServiceImpl implements OrderService {
         } catch (DAOException e) {
             LOGGER.error(Message.UPDATE_USER_DISCOUNT_ERROR);
             throw new ServiceException(Message.UPDATE_USER_DISCOUNT_ERROR, e);
+        }
+    }
+    
+    @Override
+    public void updateTourDiscount(Tour tour) throws ServiceException {
+        try {
+            orderDAO.updateTourDiscount(tour);
+        } catch (DAOException e) {
+            LOGGER.error(Message.UPDATE_TOUR_DISCOUNT_ERROR);
+            throw new ServiceException(Message.UPDATE_TOUR_DISCOUNT_ERROR, e);
         }
     }
 

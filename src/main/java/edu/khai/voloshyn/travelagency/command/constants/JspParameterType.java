@@ -14,6 +14,7 @@ public class JspParameterType {
     public static final String TOUR_ID = "tour_id";
     public static final String CITY_ID = "city_id";
     public static final String HOTEL_ID = "hotel_id";
+    public static final String TOURIST_ID = "tourist_id";
     public static final String TOUR_TYPE_ID = "tour_type_id";
     public static final String TOUR_NAME = "tour_name";
     public static final String COST = "cost";
@@ -23,6 +24,7 @@ public class JspParameterType {
     public static final String TOUR_TRANSPORT = "tour_transport";
     public static final String TO_CITY = "to_city";
     public static final String TO_HOTEL = "to_hotel";
+    public static final String TO_TOURIST = "to_tourist";
     public static final String DEPARTURE_CITY = "departure_city";
     public static final String TOUR_TYPE = "tour_type";
     public static final String TOUR_NUMBER = "tour_number";
@@ -30,6 +32,7 @@ public class JspParameterType {
     public static final String ORDER_ID = "order_id";
     public static final String CITY = "city";
     public static final String HOTEL = "hotel";
+    public static final String TOURIST = "tourist";
     public static final String LANGUAGE = "language";
 
     private JspParameterType() {

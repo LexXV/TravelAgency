@@ -38,7 +38,7 @@
                     <div class="wrap-input100"
                          data-validate="Enter login">
                         <h4><fmt:message
-                                key="submitBuyTour.price"/> ${sessionScope.tour.cost * sessionScope.tour_number * sessionScope.user.discount.discountSize}</h4>
+                                key="submitBuyTour.price"/> ${sessionScope.tour.cost * sessionScope.tour_number * sessionScope.user.discount.discountSize * sessionScope.tour.discount.discountSize}</h4>
                     </div>
                     <div class="container-login100-form-btn">
                         <button class="login100-form-btn" type="submit"

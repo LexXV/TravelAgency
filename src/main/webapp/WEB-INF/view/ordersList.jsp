@@ -30,6 +30,7 @@
                         <th><fmt:message key="allOrders.departureDate"/></th>
                         <th><fmt:message key="allOrders.tourNumber"/></th>
                         <th><fmt:message key="allOrders.price"/></th>
+                        <th><fmt:message key="allOrders.orderStatus"/></th>
                         <th><fmt:message key="allOrders.cancel"/></th>
                     </tr>
                     <c:forEach items="${orders}" var="order">
@@ -42,6 +43,7 @@
                                         value="${order.tour.departureDate}"/></td>
                                 <td><c:out value="${order.number}"/></td>
                                 <td><c:out value="${order.price}"/></td>
+                                <td><c:out value="${order.orderStatus}"/></td>
                                 <td>
                                     <c:if test="${order.orderStatus=='ACTIVE'}">
                                         <form method="get">
@@ -74,6 +76,8 @@
                         <th><fmt:message key="allOrders.tourNumber"/></th>
                         <th><fmt:message key="allOrders.price"/></th>
                         <th><fmt:message key="allOrders.orderStatus"/></th>
+                        <th><fmt:message key="allOrders.bought"/></th>
+                        <th><fmt:message key="allOrders.cancel"/></th>
                     </tr>
                     <c:forEach items="${orders}" var="order">
                         <tr>
@@ -87,6 +91,34 @@
                             <td><c:out value="${order.number}"/></td>
                             <td><c:out value="${order.price}"/></td>
                             <td><c:out value="${order.orderStatus}"/></td>
+                            <c:if test="${order.orderStatus=='ACTIVE'}">
+                            	<td>
+                                   <form method="get">
+                                      <button class="bot1" type="submit"
+                                              name="command"
+                                              value="SET_BOUGHT_ORDER">
+                                          <input type="hidden"
+                                                 name="order_id"
+                                                 value="${order.orderId}"/>
+                                          <fmt:message
+                                                  key="button.bought"/>
+                                      </button>
+                                   </form>
+                            	</td>
+                            	<td>
+                                   <form method="get">
+                                      <button class="bot1" type="submit"
+                                              name="command"
+                                              value="CANCEL_BUYING_TOUR">
+                                          <input type="hidden"
+                                                 name="order_id"
+                                                 value="${order.orderId}"/>
+                                          <fmt:message
+                                                  key="button.cancel"/>
+                                      </button>
+                                   </form>
+                            	</td>
+                            </c:if>
                         </tr>
                     </c:forEach>
                 </table>
@@ -103,6 +135,8 @@
                         <th><fmt:message key="allOrders.tourNumber"/></th>
                         <th><fmt:message key="allOrders.price"/></th>
                         <th><fmt:message key="allOrders.orderStatus"/></th>
+                        <th><fmt:message key="allOrders.bought"/></th>
+                        <th><fmt:message key="allOrders.cancel"/></th>
                     </tr>
                     <c:forEach items="${orders}" var="order">
                         <tr>
@@ -116,6 +150,34 @@
                             <td><c:out value="${order.number}"/></td>
                             <td><c:out value="${order.price}"/></td>
                             <td><c:out value="${order.orderStatus}"/></td>
+                            <c:if test="${order.orderStatus=='ACTIVE'}">
+                            	<td>
+                                   <form method="get">
+                                      <button class="bot1" type="submit"
+                                              name="command"
+                                              value="SET_BOUGHT_ORDER">
+                                          <input type="hidden"
+                                                 name="order_id"
+                                                 value="${order.orderId}"/>
+                                          <fmt:message
+                                                  key="button.bought"/>
+                                      </button>
+                                   </form>
+                            	</td>
+                            	<td>
+                                   <form method="get">
+                                      <button class="bot1" type="submit"
+                                              name="command"
+                                              value="CANCEL_BUYING_TOUR">
+                                          <input type="hidden"
+                                                 name="order_id"
+                                                 value="${order.orderId}"/>
+                                          <fmt:message
+                                                  key="button.cancel"/>
+                                      </button>
+                                   </form>
+                            	</td>
+                            </c:if>
                         </tr>
                     </c:forEach>
                 </table>

@@ -178,6 +178,26 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <h4><fmt:message
+                                            key="updateTour.previousToTourist"/> ${sessionScope.tour.tourist.tourist}</h4>
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="to_tourist">
+                                            <option disabled="disabled">
+                                                <fmt:message
+                                                        key="updateTour.newToTourist"/>
+                                            </option>
+                                            <c:forEach
+                                                    items="${sessionScope.tourists}"
+                                                    var="tourist">
+                                                <option value="${tourist.touristId}">${tourist.tourist}</option>
+                                            </c:forEach>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="input-group">
                             <h4><fmt:message

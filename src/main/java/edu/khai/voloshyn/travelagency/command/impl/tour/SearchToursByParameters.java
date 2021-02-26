@@ -6,6 +6,7 @@ import edu.khai.voloshyn.travelagency.command.constants.PageType;
 import edu.khai.voloshyn.travelagency.command.constants.SessionAttribute;
 import edu.khai.voloshyn.travelagency.entity.City;
 import edu.khai.voloshyn.travelagency.entity.Hotel;
+import edu.khai.voloshyn.travelagency.entity.Tourist;
 import edu.khai.voloshyn.travelagency.entity.Tour;
 import edu.khai.voloshyn.travelagency.exception.ServiceException;
 import edu.khai.voloshyn.travelagency.factory.ServiceFactory;
@@ -29,10 +30,12 @@ public class SearchToursByParameters implements Command {
                     findCityById(Integer.parseInt(request.getParameter(JspParameterType.TO_CITY)));
             Hotel hotel = ServiceFactory.getInstance().getHotelService().
                     findHotelById(Integer.parseInt(request.getParameter(JspParameterType.TO_HOTEL)));
+            Tourist tourist = ServiceFactory.getInstance().getTouristService().
+                    findTouristById(Integer.parseInt(request.getParameter(JspParameterType.TO_TOURIST)));
             Date date = Date.valueOf(request.getParameter(JspParameterType.DEPARTURE_DATE));
             int days = Integer.parseInt(request.getParameter(JspParameterType.DAYS));
             double cost = Double.parseDouble(request.getParameter(JspParameterType.COST));
-            tours = ServiceFactory.getInstance().getTourService().searchToursByParameters(city, hotel, date, days, cost);
+            tours = ServiceFactory.getInstance().getTourService().searchToursByParameters(city, hotel, tourist, date, days, cost);
             request.getSession().setAttribute(SessionAttribute.TOURS, tours);
             return PageType.TOURS_LIST_PAGE.getAddress();
         } catch (ServiceException e) {

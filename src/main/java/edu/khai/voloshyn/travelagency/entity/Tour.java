@@ -16,15 +16,18 @@ public class Tour implements Serializable {
     private City city;
     private City departureCity;
     private Hotel hotel;
+    private Tourist tourist;
     private TourStatus tourStatus;
     private Transport transport;
+    private TourDiscount discount;
 
     public Tour() {
+    	discount = new TourDiscount();
     }
 
     public Tour(String name, double cost, Date departureDate,
                 int days, int places, TourType tourType, City city,
-                City departureCity, Hotel hotel, TourStatus tourStatus, Transport transport) {
+                City departureCity, Hotel hotel, Tourist tourist, TourStatus tourStatus, Transport transport) {
         this.name = name;
         this.cost = cost;
         this.departureDate = departureDate;
@@ -34,14 +37,17 @@ public class Tour implements Serializable {
         this.city = city;
         this.departureCity = departureCity;
         this.hotel = hotel;
+        this.tourist = tourist;
         this.tourStatus = tourStatus;
         this.transport = transport;
+        this.discount = new TourDiscount();
     }
 
     public Tour(int tourId, String name, Date departureDate) {
         this.tourId = tourId;
         this.name = name;
         this.departureDate = departureDate;
+        discount = new TourDiscount();
     }
 
     public int getTourId() {
@@ -124,6 +130,14 @@ public class Tour implements Serializable {
         this.hotel = hotel;
     }
     
+    public Tourist getTourist() {
+        return tourist;
+    }
+    
+    public void setTourist(Tourist tourist) {
+        this.tourist = tourist;
+    }
+    
     public TourStatus getTourStatus() {
         return tourStatus;
     }
@@ -138,6 +152,14 @@ public class Tour implements Serializable {
 
     public void setTransport(Transport transport) {
         this.transport = transport;
+    }
+    
+    public TourDiscount getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(TourDiscount discount) {
+        this.discount = discount;
     }
 
     @Override
@@ -155,14 +177,16 @@ public class Tour implements Serializable {
                 Objects.equals(getCity(), tour.getCity()) &&
                 Objects.equals(getDepartureCity(), tour.getDepartureCity()) &&
                 Objects.equals(getHotel(), tour.getHotel()) &&
-                Objects.equals(getTransport(), tour.getTransport());
+                Objects.equals(getTourist(), tour.getTourist()) &&
+                Objects.equals(getTransport(), tour.getTransport()) &&
+                Objects.equals(getDiscount(), tour.getDiscount());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getTourId(), getName(), getCost(),
                 getDepartureDate(), getDays(), getPlaces(), getTourType(),
-                getCity(), getDepartureCity(), getHotel(), getTransport());
+                getCity(), getDepartureCity(), getHotel(), getTourist(), getTransport(), getDiscount());
     }
 
     @Override
@@ -178,9 +202,10 @@ public class Tour implements Serializable {
                 ", city=" + city +
                 ", departureCity=" + departureCity +
                 ", hotel=" + hotel +
+                ", tourist=" + tourist +
                 ", tourStatus=" + tourStatus +
                 ", transport=" + transport +
-                '\'' +
+                ", discount=" + discount.getDiscountSize() + '\'' +
                 "}\n";
     }
 }

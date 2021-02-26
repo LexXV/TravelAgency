@@ -28,6 +28,10 @@ public class ServiceFactory {
     public HotelService getHotelService() {
         return HotelServiceImpl.getInstance();
     }
+    
+    public TouristService getTouristService() {
+        return TouristServiceImpl.getInstance();
+    }
 
     public TourTypeService getTourTypeService() {
         return TourTypeServiceImpl.getInstance();

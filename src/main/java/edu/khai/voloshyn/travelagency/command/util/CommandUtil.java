@@ -19,12 +19,14 @@ public class CommandUtil {
         List<Tour> tours = new ArrayList<>();
         List<City> cities = new ArrayList<>();
         List<Hotel> hotels = new ArrayList<>();
+        List<Tourist> tourists = new ArrayList<>();
         List<TourType> tourTypes = new ArrayList<>();
         List<Transport> transports = new ArrayList<>();
         try {
             tours = ServiceFactory.getInstance().getTourService().getAllTours();
             cities = ServiceFactory.getInstance().getCityService().getAllCities();
             hotels = ServiceFactory.getInstance().getHotelService().getAllHotels();
+            tourists = ServiceFactory.getInstance().getTouristService().getAllTourists();
             tourTypes = ServiceFactory.getInstance().getTourTypeService().getAllTourTypes();
             transports = ServiceFactory.getInstance().getTransportService().getAllTransports();
         } catch (ServiceException e) {
@@ -34,6 +36,7 @@ public class CommandUtil {
         request.getSession().setAttribute(SessionAttribute.TOURS, tours);
         request.getSession().setAttribute(SessionAttribute.CITIES, cities);
         request.getSession().setAttribute(SessionAttribute.HOTELS, hotels);
+        request.getSession().setAttribute(SessionAttribute.TOURISTS, tourists);
         request.getSession().setAttribute(SessionAttribute.TOUR_TYPES, tourTypes);
     }
 

@@ -31,6 +31,10 @@ public class DAOFactory {
     public HotelDAO getHotelDAO() {
         return HotelDAOImpl.getInstance();
     }
+    
+    public TouristDAO getTouristDAO() {
+        return TouristDAOImpl.getInstance();
+    }
 
     public TransportDAO getTransportDAO() {
         return TransportDAOImpl.getInstance();

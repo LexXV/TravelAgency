@@ -142,7 +142,7 @@
                         <td><c:out value="${sessionScope.user.surname}"/></td>
                     </tr>
                     <tr>
-                        <td><fmt:message key="list.discount"/></td>
+                        <td><fmt:message key="list.userDiscount"/></td>
                         <td><c:out
                                 value="${sessionScope.user.discount.discountSize}"/></td>
                     </tr>

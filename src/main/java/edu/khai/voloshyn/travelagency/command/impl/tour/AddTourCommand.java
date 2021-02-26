@@ -35,6 +35,8 @@ public class AddTourCommand implements Command {
                 findCityById(Integer.parseInt(request.getParameter(JspParameterType.DEPARTURE_CITY))));
         tour.setHotel(ServiceFactory.getInstance().getHotelService().
                 findHotelById(Integer.parseInt(request.getParameter(JspParameterType.TO_HOTEL))));
+        tour.setTourist(ServiceFactory.getInstance().getTouristService().
+                findTouristById(Integer.parseInt(request.getParameter(JspParameterType.TO_TOURIST))));
         tour.setTourType(ServiceFactory.getInstance().getTourTypeService().
                 findTourTypeById(Integer.parseInt(request.getParameter(JspParameterType.TOUR_TYPE))));
     }

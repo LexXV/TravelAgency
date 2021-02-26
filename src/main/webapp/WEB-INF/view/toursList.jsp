@@ -46,6 +46,8 @@
     	type="java.util.List"/>
     <jsp:useBean id="hotels" scope="session"
         type="java.util.List"/>
+    <jsp:useBean id="tourists" scope="session"
+        type="java.util.List"/>
     <jsp:useBean id="tour_types" scope="session"
         type="java.util.List"/>
         <c:if test="${sessionScope.role =='CLIENT'}">
@@ -86,6 +88,26 @@
                                                 	name="hotel_id"
                                                 	value="${hotel.hotelId}"/>
                                                 	${hotel.hotel}
+                                        	</button>
+                                    	</form>
+                                	</c:forEach>
+                            	</li>
+                        	</ul>
+                    	</li>
+                    	<li class="drop"><a><fmt:message key="tour.tourists"/></a>
+                        	<ul class="sub_menu">
+                            	<li>
+                                	<c:forEach items="${tourists}" var="tourist">
+                                    	<form method="get">
+                                        	<button class="btn btn-outline-info btn-lg btn-block"
+                                                	aria-label="Tourists"
+                                                	type="submit"
+                                                	name="command"
+                                                	value="GET_BY_TOURIST"><input
+                                                	type="hidden"
+                                                	name="tourist_id"
+                                                	value="${tourist.touristId}"/>
+                                                	${tourist.tourist}
                                         	</button>
                                     	</form>
                                 	</c:forEach>
@@ -168,6 +190,26 @@
                             	</li>
                         	</ul>
                     	</li>
+                    	<li class="drop"><a><fmt:message key="tour.tourists"/></a>
+                        	<ul class="sub_menu">
+                            	<li>
+                                	<c:forEach items="${tourists}" var="tourist">
+                                    	<form method="get">
+                                        	<button class="btn btn-outline-info btn-lg btn-block"
+                                                	aria-label="Tourists"
+                                                	type="submit"
+                                                	name="command"
+                                                	value="GET_BY_TOURIST"><input
+                                                	type="hidden"
+                                                	name="tourist_id"
+                                                	value="${tourist.touristId}"/>
+                                                	${tourist.tourist}
+                                        	</button>
+                                    	</form>
+                                	</c:forEach>
+                            	</li>
+                        	</ul>
+                    	</li>
                     	<li class="drop"><a><fmt:message key="tour.types"/></a>
                         	<ul class="sub_menu">
                             	<li>
@@ -216,7 +258,7 @@
                             <div class="col-md-6 col-lg-4 ftco-animate">
                                 <div class="project">
                                     <div class="text">
-                                        <h4 class="price"><c:out
+										<h4 class="price"><c:out
                                                 value="${tour.cost}$"/></h4>
                                         <span><c:out
                                                 value="${tour.days}"/> <fmt:message
@@ -224,9 +266,19 @@
                                         <h3><c:out
                                                 value="${tour.name} to ${tour.city.city}"/>
                                         </h3>
+                                        <c:if test="${tour.tourStatus=='HOT'}">
+                                        	<h4><c:out
+                                                	value="${tour.tourStatus}"/>
+                                        	</h4>
+                                        </c:if>
                                         <div class="star d-flex clearfix">
                                             <div class="mr-auto float-left">
                                                 <span class="rate">${tour.hotel.hotel}</span>
+                                            </div>
+                                        </div>
+                                        <div class="star d-flex clearfix">
+                                            <div class="mr-auto float-left">
+                                                <span class="rate">${tour.tourist.tourist}</span>
                                             </div>
                                         </div>
                                         <div class="star d-flex clearfix">
@@ -332,9 +384,19 @@
                                         <h3><c:out
                                                 value="${tour.name} to ${tour.city.city}"/>
                                         </h3>
+                                        <c:if test="${tour.tourStatus=='HOT'}">
+                                        	<h4><c:out
+                                                	value="${tour.tourStatus}"/>
+                                        	</h4>
+                                        </c:if>
                                         <div class="star d-flex clearfix">
                                             <div class="mr-auto float-left">
                                                 <span class="rate">${tour.hotel.hotel}</span>
+                                            </div>
+                                        </div>
+                                        <div class="star d-flex clearfix">
+                                            <div class="mr-auto float-left">
+                                                <span class="rate">${tour.tourist.tourist}</span>
                                             </div>
                                         </div>
                                         <div class="star d-flex clearfix">
@@ -417,11 +479,21 @@
                                             <h3><c:out
                                                     value="${tour.name} to ${tour.city.city}"/>
                                             </h3>
+                                            <c:if test="${tour.tourStatus=='HOT'}">
+                                        		<h4><c:out
+                                                		value="${tour.tourStatus}"/>
+                                        		</h4>
+                                        	</c:if>
                                             <div class="star d-flex clearfix">
                                                 <div class="mr-auto float-left">
                                                     <span class="rate">${tour.hotel.hotel}</span>
                                                 </div>
                                             </div>
+                                            <div class="star d-flex clearfix">
+                                            	<div class="mr-auto float-left">
+                                                	<span class="rate">${tour.tourist.tourist}</span>
+                                            	</div>
+                                        	</div>
                                             <div class="star d-flex clearfix">
                                                 <div class="mr-auto float-left">
                                                     <span class="rate">${tour.departureDate}</span>
@@ -478,11 +550,21 @@
                                             <h3><c:out
                                                     value="${tour.name} to ${tour.city.city}"/>
                                             </h3>
+                                            <c:if test="${tour.tourStatus=='HOT'}">
+                                        		<h4><c:out
+                                                		value="${tour.tourStatus}"/>
+                                        		</h4>
+                                        	</c:if>
                                             <div class="star d-flex clearfix">
                                                 <div class="mr-auto float-left">
                                                     <span class="rate">${tour.hotel.hotel}</span>
                                                 </div>
                                             </div>
+                                            <div class="star d-flex clearfix">
+                                            	<div class="mr-auto float-left">
+                                                	<span class="rate">${tour.tourist.tourist}</span>
+                                            	</div>
+                                        	</div>
                                             <div class="star d-flex clearfix">
                                                 <div class="mr-auto float-left">
                                                     <span class="rate">${tour.departureDate}</span>

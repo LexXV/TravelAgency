@@ -4,7 +4,7 @@ package edu.khai.voloshyn.travelagency.dao.impl;
 import edu.khai.voloshyn.travelagency.dao.UserDAO;
 import edu.khai.voloshyn.travelagency.dao.constants.SqlColumn;
 import edu.khai.voloshyn.travelagency.dao.constants.SqlStatement;
-import edu.khai.voloshyn.travelagency.entity.Discount;
+import edu.khai.voloshyn.travelagency.entity.UserDiscount;
 import edu.khai.voloshyn.travelagency.entity.Role;
 import edu.khai.voloshyn.travelagency.entity.User;
 import edu.khai.voloshyn.travelagency.exception.DAOException;
@@ -307,7 +307,7 @@ public class UserDAOImpl implements UserDAO {
         user.setPassword(resultSet.getString(SqlColumn.USER_PASSWORD.toString()).toCharArray());
         user.setName(resultSet.getString(SqlColumn.USER_NAME.toString()));
         user.setSurname(resultSet.getString(SqlColumn.USER_SURNAME.toString()));
-        user.setDiscount(new Discount(resultSet.getInt(SqlColumn.USER_DISCOUNT_ID.toString()),
+        user.setDiscount(new UserDiscount(resultSet.getInt(SqlColumn.USER_DISCOUNT_ID.toString()),
                 resultSet.getDouble(SqlColumn.USER_DISCOUNT_SIZE.toString())));
         user.setCash(resultSet.getDouble(SqlColumn.USER_CASH.toString()));
         user.setPhone(resultSet.getString(SqlColumn.USER_PHONE.toString()));

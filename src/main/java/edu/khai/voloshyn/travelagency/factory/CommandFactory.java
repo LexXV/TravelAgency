@@ -66,6 +66,8 @@ public class CommandFactory {
                 return new GetToursByCity();
             case GET_BY_HOTEL:
                 return new GetToursByHotel();
+            case GET_BY_TOURIST:
+                return new GetToursByTourist();
             case GET_BY_TOUR_TYPE:
                 return new GetToursByType();
             case ADD_TOUR:
@@ -82,6 +84,8 @@ public class CommandFactory {
                 return new BuyTourCommand();
             case CANCEL_BUYING_TOUR:
                 return new CancelBuyingTourCommand();
+            case SET_BOUGHT_ORDER:
+                return new SetBoughtOrderCommand();
             case REDIRECT_TO_SUBMIT_BUY_PAGE:
                 return new RedirectToSubmitBuyPageCommand();
             case GET_ORDERS:
@@ -92,12 +96,16 @@ public class CommandFactory {
                 return new DeleteCityCommand();
             case DELETE_HOTEL:
                 return new DeleteHotelCommand();
+            case DELETE_TOURIST:
+                return new DeleteTouristCommand();
             case DELETE_TOUR_TYPE:
                 return new DeleteTourTypeCommand();
             case ADD_CITY:
                 return new AddCityCommand();
             case ADD_HOTEL:
                 return new AddHotelCommand();
+            case ADD_TOURIST:
+                return new AddTouristCommand();
             case ADD_TOUR_TYPE:
                 return new AddTourTypeCommand();
             case REDIRECT:

@@ -1,7 +1,7 @@
 package edu.khai.voloshyn.travelagency.entity;
 
 public enum OrderStatus {
-    ACTIVE(1), BOUGHT(2);
+    ACTIVE(1), BOUGHT(2), CANCELED(3);
 
     private int id;
 

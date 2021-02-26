@@ -83,6 +83,21 @@
                                                 </select>
                                                 <div class="select-dropdown"></div>
                                             </div>
+                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                <select name="to_tourist"
+                                                        style="height: 52px">
+                                                    <option disabled="disabled">
+                                                        <fmt:message
+                                                                key="tour.toTourist"/>
+                                                    </option>
+                                                    <c:forEach
+                                                            items="${sessionScope.tourists}"
+                                                            var="tourist">
+                                                        <option value="${tourist.touristId}">${tourist.tourist}</option>
+                                                    </c:forEach>
+                                                </select>
+                                                <div class="select-dropdown"></div>
+                                            </div>
                                             <input type="date"
                                                    class="search_input search_input_2"
                                                    required

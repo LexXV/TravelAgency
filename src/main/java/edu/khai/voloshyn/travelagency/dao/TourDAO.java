@@ -2,6 +2,8 @@ package edu.khai.voloshyn.travelagency.dao;
 
 import edu.khai.voloshyn.travelagency.entity.City;
 import edu.khai.voloshyn.travelagency.entity.Hotel;
+import edu.khai.voloshyn.travelagency.entity.Tourist;
+import edu.khai.voloshyn.travelagency.entity.User;
 import edu.khai.voloshyn.travelagency.entity.Tour;
 import edu.khai.voloshyn.travelagency.exception.DAOException;
 
@@ -15,11 +17,13 @@ public interface TourDAO extends DAO<Tour> {
 
     List<Tour> getHotTours() throws DAOException;
 
-    List<Tour> searchTourByParameters(City city, Hotel hotel, Date departureDate, int days, double cost) throws DAOException;
+    List<Tour> searchTourByParameters(City city, Hotel hotel, Tourist tourist, Date departureDate, int days, double cost) throws DAOException;
 
     List<Tour> getToursByCityId(int cityId) throws DAOException;
     
     List<Tour> getToursByHotelId(int hotelId) throws DAOException;
+    
+    List<Tour> getToursByTouristId(int touristId) throws DAOException;
 
     List<Tour> getToursByTourTypeId(int tourTypeId) throws DAOException;
 

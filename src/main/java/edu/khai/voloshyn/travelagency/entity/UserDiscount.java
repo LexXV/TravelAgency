@@ -3,14 +3,14 @@ package edu.khai.voloshyn.travelagency.entity;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Discount implements Serializable {
+public class UserDiscount implements Serializable {
     private int id;
     private double discountSize;
 
-    public Discount() {
+    public UserDiscount() {
     }
 
-    public Discount(int id, double discountSize) {
+    public UserDiscount(int id, double discountSize) {
         this.id = id;
         this.discountSize = discountSize;
     }
@@ -34,8 +34,8 @@ public class Discount implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Discount)) return false;
-        Discount that = (Discount) o;
+        if (!(o instanceof UserDiscount)) return false;
+        UserDiscount that = (UserDiscount) o;
         return getId() == that.getId() &&
                 Double.compare(that.getDiscountSize(), getDiscountSize()) == 0;
     }

@@ -10,7 +10,7 @@ public class User implements Serializable {
     private char[] password;
     private String name;
     private String surname;
-    private Discount discount;
+    private UserDiscount discount;
     private double cash;
     private String phone;
     private Role role;
@@ -23,7 +23,7 @@ public class User implements Serializable {
         this.surname = surname;
         this.cash = cash;
         this.phone = phone;
-        this.discount = new Discount();
+        this.discount = new UserDiscount();
     }
 
     public User(String login, char[] password, String name,
@@ -34,17 +34,17 @@ public class User implements Serializable {
         this.surname = surname;
         this.phone = phone;
         this.role = role;
-        this.discount = new Discount();
+        this.discount = new UserDiscount();
     }
 
     public User(int id, String login) {
         this.id = id;
         this.login = login;
-        discount = new Discount();
+        discount = new UserDiscount();
     }
 
     public User() {
-        discount = new Discount();
+        discount = new UserDiscount();
     }
 
     public int getUserId() {
@@ -91,11 +91,11 @@ public class User implements Serializable {
         this.surname = surname;
     }
 
-    public Discount getDiscount() {
+    public UserDiscount getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Discount discount) {
+    public void setDiscount(UserDiscount discount) {
         this.discount = discount;
     }
 

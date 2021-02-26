@@ -32,6 +32,8 @@ public class UpdateTourCommand implements Command {
                 findCityById(Integer.parseInt(request.getParameter(JspParameterType.TO_CITY))));
         tour.setHotel(ServiceFactory.getInstance().getHotelService().
                 findHotelById(Integer.parseInt(request.getParameter(JspParameterType.TO_HOTEL))));
+        tour.setTourist(ServiceFactory.getInstance().getTouristService().
+                findTouristById(Integer.parseInt(request.getParameter(JspParameterType.TO_TOURIST))));
         tour.setDepartureCity(ServiceFactory.getInstance().getCityService().
                 findCityById(Integer.parseInt(request.getParameter(JspParameterType.DEPARTURE_CITY))));
         tour.setTourType(ServiceFactory.getInstance().getTourTypeService().

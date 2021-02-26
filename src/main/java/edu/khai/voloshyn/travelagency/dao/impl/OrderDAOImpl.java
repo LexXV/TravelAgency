@@ -26,18 +26,30 @@ public class OrderDAOImpl implements OrderDAO {
     private static final int CREATE_TOUR_NUMBER_INDEX = 3;
     private static final int CREATE_PRICE_INDEX = 4;
     private static final int USER_ID_INDEX = 1;
+    private static final int TOUR_ID_INDEX = 1;
     private static final int ORDER_ID_INDEX = 1;
-    private static final int DISCOUNT_ID_INDEX = 1;
+    private static final int USER_DISCOUNT_ID_INDEX = 1;
     private static final int DELETE_ORDER_ID_INDEX = 1;
+    private static final int SET_BOUGHT_ORDER_ID_INDEX = 1;
     private static final int UPDATE_USER_DISCOUNT_ID_INDEX = 1;
+    private static final int TOUR_DISCOUNT_ID_INDEX = 1;
+    private static final int UPDATE_TOUR_DISCOUNT_ID_INDEX = 1;
+    private static final int UPDATE_TOUR_ID_DISCOUNT_INDEX = 2;
     private static final int UPDATE_USER_ID_INDEX = 2;
     private static final double MIN_EXPENDITURE_SUM = 1000;
     private static final double MIDDLE_EXPENDITURE_SUM = 5000;
     private static final double MAX_EXPENDITURE_SUM = 10000;
-    private static final int DISCOUNT_STATUS_START = 4;
-    private static final int DISCOUNT_STATUS_MIN = 3;
-    private static final int DISCOUNT_STATUS_MIDDLE = 2;
-    private static final int DISCOUNT_STATUS_MAX = 1;
+    private static final int USER_DISCOUNT_STATUS_START = 4;
+    private static final int USER_DISCOUNT_STATUS_MIN = 3;
+    private static final int USER_DISCOUNT_STATUS_MIDDLE = 2;
+    private static final int USER_DISCOUNT_STATUS_MAX = 1;
+    private static final double MIN_TOUR_DISCOUNT = 3;
+    private static final double MIDDLE_TOUR_DISCOUNT = 2;
+    private static final double MAX_TOUR_DISCOUNT = 1;
+    private static final int TOUR_DISCOUNT_STATUS_START = 4;
+    private static final int TOUR_DISCOUNT_STATUS_MIN = 3;
+    private static final int TOUR_DISCOUNT_STATUS_MIDDLE = 2;
+    private static final int TOUR_DISCOUNT_STATUS_MAX = 1;
 
     private OrderDAOImpl() {
     }
@@ -75,24 +87,57 @@ public class OrderDAOImpl implements OrderDAO {
             throw new DAOException(Message.DELETE_ORDER_ERROR, e);
         }
     }
+    
+    @Override
+    public void setBought(int orderId) throws DAOException {
+        try {
+            try (ProxyConnection connection =
+                         new ProxyConnection(ConnectionPool.INSTANCE.getConnection());
+                 PreparedStatement statement =
+                         connection.prepareStatement(SqlStatement.SET_BOUGHT_ORDER)) {
+                statement.setInt(SET_BOUGHT_ORDER_ID_INDEX, orderId);
+                statement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            LOGGER.error(Message.SET_BOUGHT_ORDER_ERROR);
+            throw new DAOException(Message.SET_BOUGHT_ORDER_ERROR, e);
+        }
+    }
 
     @Override
     public void updateUserDiscount(User user) throws DAOException {
         try {
-            int updatedDiscountId = calculateUserDiscountId(user.getUserId());
+            int updatedUserDiscountId = calculateUserDiscountId(user.getUserId());
             try (ProxyConnection connection = new ProxyConnection(ConnectionPool.INSTANCE.getConnection());
                  PreparedStatement statement = connection.prepareStatement(SqlStatement.UPDATE_USER_DISCOUNT_ID)) {
-                statement.setInt(UPDATE_USER_DISCOUNT_ID_INDEX, updatedDiscountId);
+                statement.setInt(UPDATE_USER_DISCOUNT_ID_INDEX, updatedUserDiscountId);
                 statement.setInt(UPDATE_USER_ID_INDEX, user.getUserId());
                 statement.executeUpdate();
             }
-            user.setDiscount(findDiscountById(updatedDiscountId));
+            user.setDiscount(findUserDiscountById(updatedUserDiscountId));
         } catch (SQLException e) {
             LOGGER.error(Message.UPDATE_USER_DISCOUNT_ERROR);
             throw new DAOException(Message.UPDATE_USER_DISCOUNT_ERROR, e);
         }
     }
 
+    @Override
+    public void updateTourDiscount(Tour tour) throws DAOException {
+        try {
+        	int updatedTourDiscountId = calculateTourDiscountId(tour.getTourId());
+            try (ProxyConnection connection = new ProxyConnection(ConnectionPool.INSTANCE.getConnection());
+                 PreparedStatement statement = connection.prepareStatement(SqlStatement.UPDATE_TOUR_DISCOUNT_ID)) {
+                statement.setInt(UPDATE_TOUR_DISCOUNT_ID_INDEX, updatedTourDiscountId);
+                statement.setInt(UPDATE_TOUR_ID_DISCOUNT_INDEX, tour.getTourId());
+                statement.executeUpdate();
+            }
+            tour.setDiscount(findTourDiscountById(updatedTourDiscountId));
+        } catch (SQLException e) {
+            LOGGER.error(Message.UPDATE_TOUR_DISCOUNT_ERROR);
+            throw new DAOException(Message.UPDATE_TOUR_DISCOUNT_ERROR, e);
+        }
+    }
+    
     @Override
     public Order findById(int orderId) throws DAOException {
         Order order = new Order();
@@ -210,13 +255,13 @@ public class OrderDAOImpl implements OrderDAO {
         return sum;
     }
 
-    private Discount findDiscountById(int discountId) throws DAOException {
-        Discount discount = new Discount();
+    private UserDiscount findUserDiscountById(int discountId) throws DAOException {
+        UserDiscount discount = new UserDiscount();
         try (ProxyConnection connection =
                      new ProxyConnection(ConnectionPool.INSTANCE.getConnection());
              PreparedStatement statement =
-                     connection.prepareStatement(SqlStatement.FIND_DISCOUNT_BY_ID)) {
-            statement.setInt(DISCOUNT_ID_INDEX, discountId);
+                     connection.prepareStatement(SqlStatement.FIND_USER_DISCOUNT_BY_ID)) {
+            statement.setInt(USER_DISCOUNT_ID_INDEX, discountId);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     discount.setId(resultSet.getInt(SqlColumn.USER_DISCOUNT_ID.toString()));
@@ -224,8 +269,8 @@ public class OrderDAOImpl implements OrderDAO {
                 }
             }
         } catch (SQLException e) {
-            LOGGER.error(Message.FIND_DISCOUNT_BY_ID_ERROR);
-            throw new DAOException(Message.FIND_DISCOUNT_BY_ID_ERROR, e);
+            LOGGER.error(Message.FIND_USER_DISCOUNT_BY_ID_ERROR);
+            throw new DAOException(Message.FIND_USER_DISCOUNT_BY_ID_ERROR, e);
         }
         return discount;
     }
@@ -233,16 +278,70 @@ public class OrderDAOImpl implements OrderDAO {
     private int calculateUserDiscountId(int userId) throws DAOException {
         double userExpenditure = getAllUserExpendituresSum(userId);
         if (userExpenditure < MIN_EXPENDITURE_SUM) {
-            return DISCOUNT_STATUS_START;
+            return USER_DISCOUNT_STATUS_START;
         } else if (userExpenditure < MIDDLE_EXPENDITURE_SUM) {
-            return DISCOUNT_STATUS_MIN;
+            return USER_DISCOUNT_STATUS_MIN;
         } else if (userExpenditure < MAX_EXPENDITURE_SUM) {
-            return DISCOUNT_STATUS_MIDDLE;
+            return USER_DISCOUNT_STATUS_MIDDLE;
         } else {
-            return DISCOUNT_STATUS_MAX;
+            return USER_DISCOUNT_STATUS_MAX;
+        }
+    }
+    
+    private double getTourDiscountById(int id) throws DAOException {
+        double dis = 0;
+        try {
+            try (ProxyConnection connection =
+                         new ProxyConnection(ConnectionPool.INSTANCE.getConnection());
+                 PreparedStatement statement =
+                         connection.prepareStatement(SqlStatement.FIND_TOUR_DISCOUNT_BY_ID)) {
+                statement.setInt(TOUR_ID_INDEX, id);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    while (resultSet.next()) {
+                        dis = resultSet.getDouble(SqlColumn.TOUR_DISCOUNT_SIZE.toString());
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            LOGGER.error(Message.GET_TOUR_DISCOUNT_BY_ID_ERROR);
+            throw new DAOException(Message.GET_TOUR_DISCOUNT_BY_ID_ERROR, e);
+        }
+        return dis;
+    }
+    
+    private int calculateTourDiscountId(int tourId) throws DAOException {
+        double tourDiscount = getTourDiscountById(tourId);
+        if (tourDiscount > MIN_TOUR_DISCOUNT) {
+            return TOUR_DISCOUNT_STATUS_START;
+        } else if (tourDiscount > MIDDLE_TOUR_DISCOUNT) {
+            return TOUR_DISCOUNT_STATUS_MIN;
+        } else if (tourDiscount > MAX_TOUR_DISCOUNT) {
+            return TOUR_DISCOUNT_STATUS_MIDDLE;
+        } else {
+            return TOUR_DISCOUNT_STATUS_MAX;
         }
     }
 
+    private TourDiscount findTourDiscountById(int discountId) throws DAOException {
+        TourDiscount discount = new TourDiscount();
+        try (ProxyConnection connection =
+                     new ProxyConnection(ConnectionPool.INSTANCE.getConnection());
+             PreparedStatement statement =
+                     connection.prepareStatement(SqlStatement.FIND_TOUR_DISCOUNT_BY_ID)) {
+            statement.setInt(TOUR_DISCOUNT_ID_INDEX, discountId);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    discount.setId(resultSet.getInt(SqlColumn.TOUR_DISCOUNT_ID.toString()));
+                    discount.setDiscountSize(resultSet.getDouble(SqlColumn.TOUR_DISCOUNT_SIZE.toString()));
+                }
+            }
+        } catch (SQLException e) {
+            LOGGER.error(Message.FIND_TOUR_DISCOUNT_BY_ID_ERROR);
+            throw new DAOException(Message.FIND_TOUR_DISCOUNT_BY_ID_ERROR, e);
+        }
+        return discount;
+    }
+    
     private void initializeCreateOrderStatement(PreparedStatement statement,
                                                 Order order) throws SQLException {
         statement.setInt(CREATE_USER_ID_INDEX, order.getUser().getUserId());

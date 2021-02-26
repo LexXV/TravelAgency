@@ -11,6 +11,7 @@ public class SessionAttribute {
     public static final String TRANSPORTS = "transports";
     public static final String CITIES = "cities";
     public static final String HOTELS = "hotels";
+    public static final String TOURISTS = "tourists";
     public static final String TOUR_TYPES = "tour_types";
     public static final String TOURS = "tours";
 
