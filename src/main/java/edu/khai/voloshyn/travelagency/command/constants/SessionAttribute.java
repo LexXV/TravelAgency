@@ -1,5 +1,11 @@
 package edu.khai.voloshyn.travelagency.command.constants;
 
+/**
+ * The type Session Attribute.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class SessionAttribute {
     public static final String PAGE = "page";
     public static final String ROLE = "role";

@@ -13,6 +13,12 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * The type Delete Hotel Command.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class DeleteHotelCommand implements Command {
     public static final Logger LOGGER = LogManager.getLogger(DeleteHotelCommand.class.getName());
 

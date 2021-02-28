@@ -14,6 +14,12 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * The type Delete Tour Command.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class DeleteTourCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger(DeleteTourCommand.class.getName());
 

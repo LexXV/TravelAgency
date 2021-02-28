@@ -16,6 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Get Tours By Hotel.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class GetToursByHotel implements Command {
     private static final Logger LOGGER = LogManager.getLogger(GetToursByHotel.class.getName());
 

@@ -254,7 +254,7 @@ public class SqlStatement {
             "SET `order_status_id` = '2' WHERE (`order_id` = ?)";
 
     public static final String SUM_ALL_USER_ORDERS_PRICE = "SELECT " +
-            "SUM(price) AS user_sum FROM travel_agency_db.order WHERE user_id = ?";
+            "SUM(price) AS user_sum FROM travel_agency_db.order WHERE order_status_id <> '3' AND user_id = ?";
 
     private SqlStatement() {
     }

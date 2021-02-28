@@ -369,10 +369,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `travel_agency_db`;
-INSERT INTO `travel_agency_db`.`tour` (`tour_id`, `tour_name`, `tour_cost`, `tour_departure_date`, `tour_days`, `tour_places`, `tour_type_id`, `tour_city_id`, `tour_departure_city_id`, `tour_transport_id`, `tour_hotel_id`, `tour_tourist_id`, `tour_status_id`, `tour_discount_id`) VALUES (DEFAULT, 'Wonderful history', 9000.0, '2021-03-03', 3, 15, 1, 2, 1, 1, 4, 1, 1, 1);
-INSERT INTO `travel_agency_db`.`tour` (`tour_id`, `tour_name`, `tour_cost`, `tour_departure_date`, `tour_days`, `tour_places`, `tour_type_id`, `tour_city_id`, `tour_departure_city_id`, `tour_transport_id`, `tour_hotel_id`, `tour_tourist_id`, `tour_status_id`, `tour_discount_id`) VALUES (DEFAULT, 'Weekend shopping', 7500.0, '2021-03-06', 2, 13, 2, 2, 3, 1, 3, 1, 1, 2);
-INSERT INTO `travel_agency_db`.`tour` (`tour_id`, `tour_name`, `tour_cost`, `tour_departure_date`, `tour_days`, `tour_places`, `tour_type_id`, `tour_city_id`, `tour_departure_city_id`, `tour_transport_id`, `tour_hotel_id`, `tour_tourist_id`, `tour_status_id`, `tour_discount_id`) VALUES (DEFAULT, 'Romantic story', 10000.0, '2021-03-04', 4, 10, 4, 2, 1, 2, 5, 2, 1, 3);
-INSERT INTO `travel_agency_db`.`tour` (`tour_id`, `tour_name`, `tour_cost`, `tour_departure_date`, `tour_days`, `tour_places`, `tour_type_id`, `tour_city_id`, `tour_departure_city_id`, `tour_transport_id`, `tour_hotel_id`, `tour_tourist_id`, `tour_status_id`, `tour_discount_id`) VALUES (DEFAULT, 'Great fishing', 2000, '2021-02-23', 1, 8, 3, 2, 1, 1, 4, 1, 3, 4);
+INSERT INTO `travel_agency_db`.`tour` (`tour_id`, `tour_name`, `tour_cost`, `tour_departure_date`, `tour_days`, `tour_places`, `tour_type_id`, `tour_city_id`, `tour_departure_city_id`, `tour_transport_id`, `tour_hotel_id`, `tour_tourist_id`, `tour_status_id`, `tour_discount_id`) VALUES (DEFAULT, 'Wonderful history', 9000.0, '2021-03-03', 3, 15, 1, 2, 1, 1, 4, 1, 1, 3);
+INSERT INTO `travel_agency_db`.`tour` (`tour_id`, `tour_name`, `tour_cost`, `tour_departure_date`, `tour_days`, `tour_places`, `tour_type_id`, `tour_city_id`, `tour_departure_city_id`, `tour_transport_id`, `tour_hotel_id`, `tour_tourist_id`, `tour_status_id`, `tour_discount_id`) VALUES (DEFAULT, 'Weekend shopping', 7500.0, '2021-03-06', 2, 13, 2, 2, 3, 1, 3, 1, 1, 1);
+INSERT INTO `travel_agency_db`.`tour` (`tour_id`, `tour_name`, `tour_cost`, `tour_departure_date`, `tour_days`, `tour_places`, `tour_type_id`, `tour_city_id`, `tour_departure_city_id`, `tour_transport_id`, `tour_hotel_id`, `tour_tourist_id`, `tour_status_id`, `tour_discount_id`) VALUES (DEFAULT, 'Romantic story', 10000.0, '2021-03-04', 4, 10, 4, 2, 1, 2, 5, 2, 1, 4);
+INSERT INTO `travel_agency_db`.`tour` (`tour_id`, `tour_name`, `tour_cost`, `tour_departure_date`, `tour_days`, `tour_places`, `tour_type_id`, `tour_city_id`, `tour_departure_city_id`, `tour_transport_id`, `tour_hotel_id`, `tour_tourist_id`, `tour_status_id`, `tour_discount_id`) VALUES (DEFAULT, 'Great fishing', 2000, '2021-02-23', 1, 8, 3, 2, 1, 1, 4, 1, 3, 2);
 
 COMMIT;
 
@@ -411,6 +411,8 @@ USE `travel_agency_db`;
 INSERT INTO `travel_agency_db`.`user` (`user_id`, `user_login`, `user_password`, `user_name`, `user_surname`, `user_discount_id`, `user_cash`, `user_phone`, `user_role_id`) VALUES (DEFAULT, 'admin', 'admin1', 'Admin', 'Admin', DEFAULT, DEFAULT, '0661111111', 2);
 INSERT INTO `travel_agency_db`.`user` (`user_id`, `user_login`, `user_password`, `user_name`, `user_surname`, `user_discount_id`, `user_cash`, `user_phone`, `user_role_id`) VALUES (DEFAULT, 'tf300t', '54354l', 'Alex', 'Voloshin', DEFAULT, 10000.0, '0501111111', DEFAULT);
 INSERT INTO `travel_agency_db`.`user` (`user_id`, `user_login`, `user_password`, `user_name`, `user_surname`, `user_discount_id`, `user_cash`, `user_phone`, `user_role_id`) VALUES (DEFAULT, 'ghf', '345ghf', 'Igor', 'Vishnyakov', DEFAULT, DEFAULT, '0671111111', 4);
+INSERT INTO `travel_agency_db`.`user` (`user_id`, `user_login`, `user_password`, `user_name`, `user_surname`, `user_discount_id`, `user_cash`, `user_phone`, `user_role_id`) VALUES (DEFAULT, 'admin2', 'admin2', 'Админ', 'Админ', DEFAULT, DEFAULT, '0577111111', 2);
+INSERT INTO `travel_agency_db`.`user` (`user_id`, `user_login`, `user_password`, `user_name`, `user_surname`, `user_discount_id`, `user_cash`, `user_phone`, `user_role_id`) VALUES (DEFAULT, 'user', 'user11', 'User', 'User', DEFAULT, DEFAULT, '0911111111', DEFAULT);
 
 COMMIT;
 

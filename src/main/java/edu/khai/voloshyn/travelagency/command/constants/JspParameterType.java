@@ -1,5 +1,11 @@
 package edu.khai.voloshyn.travelagency.command.constants;
 
+/**
+ * The type Jsp Parameter Type.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class JspParameterType {
     public static final String COMMAND = "command";
     public static final String USER_ID = "user_id";

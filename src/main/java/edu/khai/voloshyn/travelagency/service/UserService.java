@@ -5,6 +5,12 @@ import edu.khai.voloshyn.travelagency.exception.ServiceException;
 
 import java.util.List;
 
+/**
+ * The interface User Service.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public interface UserService {
     User signIn(String login, String password) throws ServiceException;
 

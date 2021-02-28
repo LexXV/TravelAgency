@@ -15,6 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Get Hot Tours Command.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class GetHotToursCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger(GetHotToursCommand.class.getName());
 

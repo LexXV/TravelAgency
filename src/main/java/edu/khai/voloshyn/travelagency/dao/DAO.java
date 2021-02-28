@@ -4,6 +4,13 @@ import edu.khai.voloshyn.travelagency.exception.DAOException;
 
 import java.util.List;
 
+/**
+ * The interface DAO.
+ *
+ * @param <T> the type parameter
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public interface DAO<T> {
     void create(T item) throws DAOException;
 

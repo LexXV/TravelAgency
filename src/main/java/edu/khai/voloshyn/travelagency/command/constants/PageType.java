@@ -1,5 +1,11 @@
 package edu.khai.voloshyn.travelagency.command.constants;
 
+/**
+ * The enum Page Type.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public enum PageType {
     HOME_PAGE("/WEB-INF/view/homePage.jsp"),
     SIGN_IN_PAGE("/WEB-INF/view/signIn.jsp"),

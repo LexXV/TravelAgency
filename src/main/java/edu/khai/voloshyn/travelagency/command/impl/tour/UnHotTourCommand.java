@@ -14,6 +14,12 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * The type Un Hot Tour Command.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class UnHotTourCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger(UnHotTourCommand.class.getName());
 

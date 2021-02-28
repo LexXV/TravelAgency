@@ -15,6 +15,12 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * The type Redirect To Submit Buy Page Command.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class RedirectToSubmitBuyPageCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger(RedirectToSubmitBuyPageCommand.class.getName());
 

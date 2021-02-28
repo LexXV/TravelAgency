@@ -10,6 +10,12 @@ import edu.khai.voloshyn.travelagency.exception.DAOException;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * The interface Tour DAO.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public interface TourDAO extends DAO<Tour> {
     void unHotTour(int tourId) throws DAOException;
 

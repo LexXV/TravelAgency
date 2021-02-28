@@ -1,5 +1,11 @@
 package edu.khai.voloshyn.travelagency.command.constants;
 
+/**
+ * The enum Command Type.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public enum CommandType {
     SIGN_UP, SIGN_IN, HOME, SIGN_OUT, GET_USERS_LIST, BLOCK_CLIENT,
     UNBLOCK_CLIENT, CREATE_ADMIN, UPDATE_ADMIN, CREATE_MANAGER, UPDATE_MANAGER, UPDATE_CLIENT, DELETE_CLIENT,

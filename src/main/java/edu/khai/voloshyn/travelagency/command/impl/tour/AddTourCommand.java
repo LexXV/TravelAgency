@@ -17,7 +17,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 
-
+/**
+ * The type Add Tour Command.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class AddTourCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger(AddTourCommand.class.getName());
 

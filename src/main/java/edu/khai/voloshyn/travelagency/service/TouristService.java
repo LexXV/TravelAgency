@@ -5,6 +5,12 @@ import edu.khai.voloshyn.travelagency.exception.ServiceException;
 
 import java.util.List;
 
+/**
+ * The interface Tourist Service.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public interface TouristService {
     void createTourist(Tourist tourist) throws ServiceException;
 

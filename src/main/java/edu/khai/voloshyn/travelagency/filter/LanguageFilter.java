@@ -11,6 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * The type Language filter.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class LanguageFilter implements Filter {
     private static final String ENGLISH = "en";
 

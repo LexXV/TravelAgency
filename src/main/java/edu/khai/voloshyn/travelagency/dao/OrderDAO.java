@@ -7,6 +7,12 @@ import edu.khai.voloshyn.travelagency.exception.DAOException;
 
 import java.util.List;
 
+/**
+ * The interface Order DAO.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public interface OrderDAO extends DAO<Order> {
     void updateUserDiscount(User user) throws DAOException;
     

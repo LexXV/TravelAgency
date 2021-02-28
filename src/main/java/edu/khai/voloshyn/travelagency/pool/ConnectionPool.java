@@ -16,6 +16,12 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * The enum Connection Pool.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public enum ConnectionPool {
     INSTANCE;
 

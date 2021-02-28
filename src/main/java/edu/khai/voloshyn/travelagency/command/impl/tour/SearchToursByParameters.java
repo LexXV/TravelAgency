@@ -19,6 +19,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.Date;
 import java.util.List;
 
+/**
+ * The type Search Tours By Parameters.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class SearchToursByParameters implements Command {
     private static final Logger LOGGER = LogManager.getLogger(SearchToursByParameters.class.getName());
 

@@ -10,6 +10,12 @@ import edu.khai.voloshyn.travelagency.exception.ServiceException;
 import java.sql.Date;
 import java.util.List;
 
+/**
+ * The interface Tour Service.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public interface TourService {
     void createTour(Tour tour) throws ServiceException;
 

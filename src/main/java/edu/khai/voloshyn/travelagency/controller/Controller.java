@@ -20,6 +20,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type Controller.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 @MultipartConfig
 @WebServlet(urlPatterns = {""})
 public class Controller extends HttpServlet {

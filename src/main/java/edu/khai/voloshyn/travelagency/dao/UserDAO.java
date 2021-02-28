@@ -3,6 +3,12 @@ package edu.khai.voloshyn.travelagency.dao;
 import edu.khai.voloshyn.travelagency.entity.User;
 import edu.khai.voloshyn.travelagency.exception.DAOException;
 
+/**
+ * The interface User DAO.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public interface UserDAO extends DAO<User> {
     String findLogin(String login) throws DAOException;
 

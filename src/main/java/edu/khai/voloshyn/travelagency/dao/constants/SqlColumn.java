@@ -1,5 +1,11 @@
 package edu.khai.voloshyn.travelagency.dao.constants;
 
+/**
+ * The enum Sql Column.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public enum SqlColumn {
     USER_ID,
     USER_LOGIN,

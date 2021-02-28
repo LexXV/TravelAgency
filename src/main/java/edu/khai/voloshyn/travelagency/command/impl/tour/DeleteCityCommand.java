@@ -13,6 +13,12 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * The type Delete City Command.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class DeleteCityCommand implements Command {
     public static final Logger LOGGER = LogManager.getLogger(DeleteCityCommand.class.getName());
 

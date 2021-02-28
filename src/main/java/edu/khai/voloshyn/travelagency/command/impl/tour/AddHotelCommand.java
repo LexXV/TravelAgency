@@ -14,6 +14,12 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * The type Add Hotel Command.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class AddHotelCommand implements Command {
     public static final Logger LOGGER = LogManager.getLogger(AddHotelCommand.class.getName());
 

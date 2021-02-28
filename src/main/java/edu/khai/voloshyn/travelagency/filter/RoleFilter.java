@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * The type Role security filter.
+ *
+ * @author Voloshyn Oleksii
+ * @version 1.0
+ */
 public class RoleFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) {
